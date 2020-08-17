@@ -23,28 +23,26 @@ $(function () {
             "type": "crud",
             "api": {
                 "url": "/api/app/book",
-                "data": {
-                    "sorting": "${orderBy} ${orderDir}" 
-                },
-/*
+                "method": "post",
                 "requestAdaptor": function (api) {
-                    console.log(api);
-                    return {
-                        data: {
-                            // skipCount: (api.data.page - 1) * api.data.perPage,
-                            // maxResultCount: "${perPage}"
-                            "sorting": {
-                                "type": "tpl",
-                                "tpl": "${orderBy} ${orderDir}"
-                            }
-                        }
+                    let sorting = "";
+                    if (api.data.orderBy) {
+                       sorting =  `${api.data.orderBy} ${api.data.orderDir}`;
                     }
+                    return {
+                        ...api,
+                        method: "get",
+                        data: {
+                            skipCount: (api.data.page - 1) * api.data.perPage,
+                            maxResultCount: api.data.perPage,
+                            sorting: sorting,
+                        }
+                    };
                 },
-*/
                 "adaptor": function (payload, response) {
                     let items = payload.items;
                     items.forEach(item => {
-                        item.type = l(`Enum:BookType:${item.type}`); 
+                        item.type = l(`Enum:BookType:${item.type}`);
                     });
                     return {
                         status: response.status === 200 ? 0 : response.status,
