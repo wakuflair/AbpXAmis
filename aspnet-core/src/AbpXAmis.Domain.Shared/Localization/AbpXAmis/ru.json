@@ -3,6 +3,20 @@
   "texts": {
     "Menu:Home": "Главная",
     "Welcome": "Добро пожаловать",
-    "LongWelcomeMessage": "Добро пожаловать в приложение. Этот запущенный проект основан на фреймворке ABP. Для получения дополнительной информации посетите сайт abp.io."
+    "LongWelcomeMessage": "Добро пожаловать в приложение. Этот запущенный проект основан на фреймворке ABP. Для получения дополнительной информации посетите сайт abp.io.",
+    "Permission:Book": "Book",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Book": "MenuBook",
+    "Book": "Book",
+    "BookName": "BookName",
+    "BookType": "BookType",
+    "BookPublishDate": "BookPublishDate",
+    "BookPrice": "BookPrice",
+    "CreateBook": "CreateBook",
+    "EditBook": "EditBook",
+    "BookDeletionConfirmationMessage": "Are you sure to delete the book {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

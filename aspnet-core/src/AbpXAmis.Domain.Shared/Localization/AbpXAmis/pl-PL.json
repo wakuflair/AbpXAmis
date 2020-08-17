@@ -3,6 +3,20 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Witaj",
-    "LongWelcomeMessage": "Witaj w aplikacji. To jest inicjalny projekt bazujący na ABP framework. Po więcej informacji odwiedź stronę abp.io."
+    "LongWelcomeMessage": "Witaj w aplikacji. To jest inicjalny projekt bazujący na ABP framework. Po więcej informacji odwiedź stronę abp.io.",
+    "Permission:Book": "Book",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Book": "MenuBook",
+    "Book": "Book",
+    "BookName": "BookName",
+    "BookType": "BookType",
+    "BookPublishDate": "BookPublishDate",
+    "BookPrice": "BookPrice",
+    "CreateBook": "CreateBook",
+    "EditBook": "EditBook",
+    "BookDeletionConfirmationMessage": "Are you sure to delete the book {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }

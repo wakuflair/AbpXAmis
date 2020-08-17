@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using AbpXAmis.Books;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace AbpXAmis.EntityFrameworkCore
 {
@@ -17,6 +19,16 @@ namespace AbpXAmis.EntityFrameworkCore
             //    b.ConfigureByConvention(); //auto configure for the base class props
             //    //...
             //});
+
+
+            builder.Entity<Book>(b =>
+            {
+                b.ToTable(AbpXAmisConsts.DbTablePrefix + "Books", AbpXAmisConsts.DbSchema);
+                b.ConfigureByConvention(); 
+                
+
+                /* Configure more properties here */
+            });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
+using AbpXAmis.Permissions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using AbpXAmis.Localization;
@@ -29,6 +30,12 @@ namespace AbpXAmis.Web.Menus
             var l = context.GetLocalizer<AbpXAmisResource>();
 
             context.Menu.Items.Insert(0, new ApplicationMenuItem("AbpXAmis.Home", l["Menu:Home"], "~/"));
+            if (await context.IsGrantedAsync(AbpXAmisPermissions.Book.Default))
+            {
+                context.Menu.AddItem(
+                    new ApplicationMenuItem(AbpXAmisMenus.Book, l["Menu:Book"], "/Books/Book")
+                );
+            }
         }
     }
 }

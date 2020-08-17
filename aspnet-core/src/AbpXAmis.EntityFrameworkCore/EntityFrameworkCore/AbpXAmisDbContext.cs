@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using AbpXAmis.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.Identity;
 using Volo.Abp.Users.EntityFrameworkCore;
+using AbpXAmis.Books;
 
 namespace AbpXAmis.EntityFrameworkCore
 {
@@ -25,6 +26,7 @@ namespace AbpXAmis.EntityFrameworkCore
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside AbpXAmisDbContextModelCreatingExtensions.ConfigureAbpXAmis
          */
+        public DbSet<Book> Books { get; set; }
 
         public AbpXAmisDbContext(DbContextOptions<AbpXAmisDbContext> options)
             : base(options)

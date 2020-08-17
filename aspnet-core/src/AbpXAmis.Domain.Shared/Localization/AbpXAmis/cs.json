@@ -3,6 +3,20 @@
   "texts": {
     "Menu:Home": "Úvod",
     "Welcome": "Vítejte",
-    "LongWelcomeMessage": "Vítejte v aplikaci. Toto je startovací projekt založený na ABP frameworku. Pro více informací, navštivte abp.io."
+    "LongWelcomeMessage": "Vítejte v aplikaci. Toto je startovací projekt založený na ABP frameworku. Pro více informací, navštivte abp.io.",
+    "Permission:Book": "Book",
+    "Permission:Create": "Create",
+    "Permission:Update": "Update",
+    "Permission:Delete": "Delete",
+    "Menu:Book": "MenuBook",
+    "Book": "Book",
+    "BookName": "BookName",
+    "BookType": "BookType",
+    "BookPublishDate": "BookPublishDate",
+    "BookPrice": "BookPrice",
+    "CreateBook": "CreateBook",
+    "EditBook": "EditBook",
+    "BookDeletionConfirmationMessage": "Are you sure to delete the book {0}?",
+    "SuccessfullyDeleted": "Successfully deleted"
   }
 }
