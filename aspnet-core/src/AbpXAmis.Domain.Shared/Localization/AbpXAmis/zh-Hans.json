@@ -9,14 +9,15 @@
     "Permission:Update": "Update",
     "Permission:Delete": "Delete",
     "Menu:Book": "MenuBook",
-    "Book": "Book",
-    "BookName": "BookName",
-    "BookType": "BookType",
-    "BookPublishDate": "BookPublishDate",
-    "BookPrice": "BookPrice",
-    "CreateBook": "CreateBook",
-    "EditBook": "EditBook",
-    "BookDeletionConfirmationMessage": "Are you sure to delete the book {0}?",
-    "SuccessfullyDeleted": "Successfully deleted"
+    "Book": "书籍",
+    "BookName": "书名",
+    "BookType": "类型",
+    "BookPublishDate": "出版日期",
+    "BookPrice": "价格",
+    "CreateBook": "添加",
+    "EditBook": "编辑",
+    "BookCreationTime": "创建时间",
+    "BookDeletionConfirmationMessage": "确认删除书籍 {0}?",
+    "SuccessfullyDeleted": "删除成功"
   }
 }
