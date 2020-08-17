@@ -23,29 +23,20 @@ namespace AbpXAmis.Books
         {
             if (await _bookRepository.GetCountAsync() <= 0)
             {
-                await _bookRepository.InsertAsync(
-                    new Book
-                    (
-                        _guidGenerator.Create(),
-                        "1984",
-                        BookType.Dystopia,
-                        new DateTime(1949, 6, 8),
-                        19.84f
-                    ),
-                    autoSave: true
-                );
-
-                await _bookRepository.InsertAsync(
-                    new Book
-                    (
-                        _guidGenerator.Create(),
-                        "The Hitchhiker's Guide to the Galaxy",
-                        BookType.ScienceFiction,
-                        new DateTime(1995, 9, 27),
-                        42.0f
-                    ),
-                    autoSave: true
-                );
+                for (int i = 0; i < 100; i++)
+                {
+                    await _bookRepository.InsertAsync(
+                        new Book
+                        (
+                            _guidGenerator.Create(),
+                            $"Book{i + 1}",
+                            (BookType) (i % Enum.GetValues(typeof(BookType)).Length),
+                            new DateTime(1949, 1, 1).AddDays(i),
+                            100 + i                            
+                        ),
+                        autoSave: true
+                    );
+                }
             }
         }
     }

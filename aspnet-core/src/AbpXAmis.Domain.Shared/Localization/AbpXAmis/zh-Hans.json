@@ -18,6 +18,15 @@
     "EditBook": "编辑",
     "BookCreationTime": "创建时间",
     "BookDeletionConfirmationMessage": "确认删除书籍 {0}?",
-    "SuccessfullyDeleted": "删除成功"
+    "SuccessfullyDeleted": "删除成功",
+    "Enum:BookType:0": "未定义",
+    "Enum:BookType:1": "冒险",
+    "Enum:BookType:2": "传记",
+    "Enum:BookType:3": "反乌托邦",
+    "Enum:BookType:4": "幻想",
+    "Enum:BookType:5": "恐怖",
+    "Enum:BookType:6": "科学",
+    "Enum:BookType:7": "科幻",
+    "Enum:BookType:8": "诗歌"
   }
 }

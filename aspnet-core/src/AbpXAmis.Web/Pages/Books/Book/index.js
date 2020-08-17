@@ -10,11 +10,28 @@ $(function () {
             "api": {
                 "url": "/api/app/book",
                 "data": {
-                    "skipCount": 0,
-                    "maxResultCount": 10
+                    "sorting": "${orderBy} ${orderDir}" 
                 },
+/*
+                "requestAdaptor": function (api) {
+                    console.log(api);
+                    return {
+                        data: {
+                            // skipCount: (api.data.page - 1) * api.data.perPage,
+                            // maxResultCount: "${perPage}"
+                            "sorting": {
+                                "type": "tpl",
+                                "tpl": "${orderBy} ${orderDir}"
+                            }
+                        }
+                    }
+                },
+*/
                 "adaptor": function (payload, response) {
-                    console.log(response);
+                    let items = payload.items;
+                    items.forEach(item => {
+                        item.type = l(`Enum:BookType:${item.type}`); 
+                    });
                     return {
                         status: response.status === 200 ? 0 : response.status,
                         data: {
@@ -29,23 +46,31 @@ $(function () {
             "columns": [
                 {
                     "name": "name",
-                    "label": l("BookName")
+                    "label": l("BookName"),
+                    "sortable": true
                 },
                 {
                     "name": "type",
-                    "label": l("BookType")
+                    "label": l("BookType"),
+                    "sortable": true,
                 },
                 {
                     "name": "publishDate",
-                    "label": l("BookPublishDate")
+                    "label": l("BookPublishDate"),
+                    "sortable": true,
+                    "tpl": "${publishDate | date:LL}"
                 },
                 {
                     "name": "price",
-                    "label": l("BookPrice")
+                    "label": l("BookPrice"),
+                    "sortable": true,
+                    "tpl": "${price | round:2}"
                 },
                 {
                     "name": "creationTime",
-                    "label": l("BookCreationTime")
+                    "label": l("BookCreationTime"),
+                    "sortable": true,
+                    "tpl": "${publishDate | date:LL}"
                 },
             ]
         }
