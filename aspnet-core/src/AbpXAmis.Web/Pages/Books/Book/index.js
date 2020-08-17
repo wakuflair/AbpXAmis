@@ -5,6 +5,20 @@ $(function () {
 
     let indexJson = {
         "type": "page",
+        "title": l("Book"),
+        "toolbar": [
+            {
+                "type": "button",
+                "label": l("CreateBook"),
+                "actionType": "dialog",
+                "dialog": {
+                    "title": "系统提示",
+                    "body": "对你点击了"
+                },
+                "icon": "fa fa-plus",
+                "iconClassName": "pull-left"
+            }
+        ],
         "body": {
             "type": "crud",
             "api": {
@@ -58,7 +72,7 @@ $(function () {
                     "name": "publishDate",
                     "label": l("BookPublishDate"),
                     "sortable": true,
-                    "tpl": "${publishDate | date:LL}"
+                    "tpl": "${publishDate | date:LL:YYYY-MM-DD}"
                 },
                 {
                     "name": "price",
@@ -70,7 +84,7 @@ $(function () {
                     "name": "creationTime",
                     "label": l("BookCreationTime"),
                     "sortable": true,
-                    "tpl": "${publishDate | date:LL}"
+                    "tpl": "${creationTime | date:LL:YYYY-MM-DD}"
                 },
             ]
         }
