@@ -118,7 +118,7 @@ $(function () {
                         // 处理书籍类型的本地化
                         let items = payload.items;
                         items.forEach(item => {
-                            item.typeText = l(`Enum:BookType:${item.type}`);
+                            item.type= l(`Enum:BookType:${item.type}`);
                         });
                         // 转换ABP GetList返回的结果为amis需要的结构
                         return {
@@ -139,7 +139,7 @@ $(function () {
                         sortable: true
                     },
                     {
-                        name: "typeText",
+                        name: "type",
                         label: l("BookType"),
                         sortable: true,
                         // tpl: "l('Enum:BookType:${type}')"  // 这种本地化是无效的, 所以只能在adaptor中处理
