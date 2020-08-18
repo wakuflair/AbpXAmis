@@ -10,9 +10,92 @@ $(function () {
                 type: "button",
                 label: l("CreateBook"),
                 actionType: "dialog",
-                dialog: {
-                    title: "系统提示",
-                    body: "对你点击了"
+                "dialog": {
+                    "title": "添加书籍",
+                    "type": "dialog",
+                    "closeOnEsc": true,
+                    "showCloseButton": true,
+                    "body": [
+                        {
+                            "type": "form",
+                            "controls": [
+                                {
+                                    "label": "书名",
+                                    "type": "text",
+                                    "name": "name",
+                                    "mode": "normal",
+                                    "required": true
+                                },
+                                {
+                                    "type": "select",
+                                    "label": "类型",
+                                    "name": "type",
+                                    "options": [
+                                        {
+                                            "label": "未定义",
+                                            "value": "0"
+                                        },
+                                        {
+                                            "label": "冒险",
+                                            "value": "1"
+                                        },
+                                        {
+                                            "label": "传记",
+                                            "value": "2"
+                                        },
+                                        {
+                                            "label": "反乌托邦",
+                                            "value": "3"
+                                        },
+                                        {
+                                            "label": "幻想",
+                                            "value": "4"
+                                        },
+                                        {
+                                            "label": "恐怖",
+                                            "value": "5"
+                                        },
+                                        {
+                                            "label": "科学",
+                                            "value": "6"
+                                        },
+                                        {
+                                            "label": "科幻",
+                                            "value": "7"
+                                        },
+                                        {
+                                            "label": "诗歌",
+                                            "value": "8"
+                                        }
+                                    ],
+                                    "value": "0",
+                                    "checkAll": false,
+                                    "mode": "normal",
+                                    "defaultCheckAll": false,
+                                    "checkAllLabel": "全选",
+                                    "required": true
+                                },
+                                {
+                                    "type": "date",
+                                    "label": "出版日期",
+                                    "name": "publishDate",
+                                    "inputFormat": "YYYY年MM月DD日",
+                                    "mode": "normal",
+                                    "format": "LL",
+                                    "required": true
+                                },
+                                {
+                                    "type": "number",
+                                    "label": "价格",
+                                    "name": "price",
+                                    "mode": "normal",
+                                    "min": "0",
+                                    "percision": 2,
+                                    "required": true
+                                }
+                            ]
+                        }
+                    ],
                 },
                 icon: "fa fa-plus",
                 iconClassName: "pull-left"
@@ -41,7 +124,7 @@ $(function () {
                     };
                 },
                 adaptor: (payload, response) => {
-                    // 处理书籍类型的本地化
+                    // 因为在处理书籍类型的本地化
                     let items = payload.items;
                     items.forEach(item => {
                         item.type = l(`Enum:BookType:${item.type}`);
@@ -68,6 +151,7 @@ $(function () {
                     name: "type",
                     label: l("BookType"),
                     sortable: true,
+                    // tpl: l("Enum:BookType:${type}")  // 这种本地化是无效的, 所以只能在adaptor中处理
                 },
                 {
                     name: "publishDate",
