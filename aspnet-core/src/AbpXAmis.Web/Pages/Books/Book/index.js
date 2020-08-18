@@ -11,16 +11,28 @@ $(function () {
                 label: l("CreateBook"),
                 actionType: "dialog",
                 "dialog": {
-                    "title": "添加书籍",
+                    "title": l("CreateBook"),
                     "type": "dialog",
                     "closeOnEsc": true,
                     "showCloseButton": true,
                     "body": [
                         {
                             "type": "form",
+                            "api": {
+                                url: "/api/app/book",
+                                adaptor: (payload, response) => {
+                                    // 转换ABP CreateBook返回的结果为amis需要的结构
+                                    return {
+                                        status: response.status === 200 ? 0 : response.status,
+                                        data: {
+                                            book: payload,
+                                        }
+                                    };
+                                },
+                            },
                             "controls": [
                                 {
-                                    "label": "书名",
+                                    "label": l("BookName"),
                                     "type": "text",
                                     "name": "name",
                                     "mode": "normal",
@@ -28,43 +40,43 @@ $(function () {
                                 },
                                 {
                                     "type": "select",
-                                    "label": "类型",
+                                    "label": l("BookType"),
                                     "name": "type",
                                     "options": [
                                         {
-                                            "label": "未定义",
+                                            "label": l("Enum:BookType:0"),
                                             "value": "0"
                                         },
                                         {
-                                            "label": "冒险",
+                                            "label": l("Enum:BookType:1"),
                                             "value": "1"
                                         },
                                         {
-                                            "label": "传记",
+                                            "label": l("Enum:BookType:2"),
                                             "value": "2"
                                         },
                                         {
-                                            "label": "反乌托邦",
+                                            "label": l("Enum:BookType:3"),
                                             "value": "3"
                                         },
                                         {
-                                            "label": "幻想",
+                                            "label": l("Enum:BookType:4"),
                                             "value": "4"
                                         },
                                         {
-                                            "label": "恐怖",
+                                            "label": l("Enum:BookType:5"),
                                             "value": "5"
                                         },
                                         {
-                                            "label": "科学",
+                                            "label": l("Enum:BookType:6"),
                                             "value": "6"
                                         },
                                         {
-                                            "label": "科幻",
+                                            "label": l("Enum:BookType:7"),
                                             "value": "7"
                                         },
                                         {
-                                            "label": "诗歌",
+                                            "label": l("Enum:BookType:8"),
                                             "value": "8"
                                         }
                                     ],
@@ -72,21 +84,20 @@ $(function () {
                                     "checkAll": false,
                                     "mode": "normal",
                                     "defaultCheckAll": false,
-                                    "checkAllLabel": "全选",
                                     "required": true
                                 },
                                 {
                                     "type": "date",
-                                    "label": "出版日期",
+                                    "label": l("BookPublishDate"),
                                     "name": "publishDate",
-                                    "inputFormat": "YYYY年MM月DD日",
+                                    "inputFormat": "YYYY-MM-DD",
                                     "mode": "normal",
-                                    "format": "LL",
+                                    "format": "YYYY-MM-DD",
                                     "required": true
                                 },
                                 {
                                     "type": "number",
-                                    "label": "价格",
+                                    "label": l("BookPrice"),
                                     "name": "price",
                                     "mode": "normal",
                                     "min": "0",
