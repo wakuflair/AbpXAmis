@@ -4,6 +4,11 @@
 
 ![demo.gif](doc/images/demo.gif)
 
+# 版本信息
+
+* ABP 3.0.5
+* AMIS 1.0.14
+
 # 简介
 
 ABP(ABP vNext)是ASP.NET Core下一个非常优秀的Web框架, 具有优雅的架构和灵活的扩展性.
