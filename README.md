@@ -2,7 +2,7 @@
 
 一个[ABP](https://github.com/abpframework/abp)集成[AMIS](https://github.com/baidu/amis)的演示程序
 
-![demo.png](doc/images/demo.png)
+![demo.gif](doc/images/demo.gif)
 
 # 简介
 
