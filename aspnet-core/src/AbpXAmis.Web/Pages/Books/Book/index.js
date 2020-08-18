@@ -73,7 +73,7 @@ $(function () {
                                 type: "form",
                                 api: {
                                     url: "/api/app/book",
-                                    method: "get",
+                                    method: "post",
                                     adaptor: (payload, response) => {
                                         // 转换ABP API返回的结果为amis需要的结构
                                         return {
